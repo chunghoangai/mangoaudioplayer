@@ -11,7 +11,7 @@ struct URLSessionHttpClient: HttpClientProtocol {
 			throw HttpClientError.nonHTTPResponse
 		}
 		let statusCode = response.statusCode
-		guard (2000...299).contains(statusCode) else {
+		guard (200...299).contains(statusCode) else {
 			throw HttpClientError.unsuccessfulStatusCode(statusCode)
 		}
 		return HTTPClientResponse(data: data.0, statusCode: response.statusCode, headers: response.allHeaderFields)

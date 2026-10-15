@@ -22,10 +22,12 @@ struct mangoaudioplayerApp: App {
             fatalError("Could not create ModelContainer: \(error)")
         }
     }()
+	
+	@State private var appCoordinator = AppCoordinator()
 
     var body: some Scene {
         WindowGroup {
-            ContentView()
+			appCoordinator.rootView
         }
         .modelContainer(sharedModelContainer)
     }
